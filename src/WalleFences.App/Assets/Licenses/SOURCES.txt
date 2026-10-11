@@ -1,0 +1,40 @@
+Walle Fences uses the following unmodified libraries. Source code is available
+at the linked upstream repositories under their respective licenses:
+
+LibreHardwareMonitorLib 0.9.6 (MPL 2.0)
+https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/tree/v0.9.6
+Source archive: https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/archive/refs/tags/v0.9.6.zip
+PawnIO modules bundled by this library: LGPL 2.1; see LibreHardwareMonitor-NOTICES.txt.
+PawnIO official installer 2.2.0.0 (proprietary binary distribution;
+redistribution of the unmodified installer is permitted by its author)
+Bundled offline: ../Hardware/PawnIO/PawnIO_setup.exe
+Release: https://github.com/namazso/PawnIO.Setup/releases/tag/2.2.0
+Homepage: https://pawnio.eu/
+See PawnIO-LICENSE.txt and PawnIO-NOTICES.txt. Walle Fences does not modify,
+extract or redistribute the driver's individual files. Driver installation
+uses this local official installer and requires Windows administrator consent.
+The corresponding open-source edition is available under different terms:
+https://github.com/namazso/PawnIO (GPL-2.0-or-later with its interface exception;
+PawnIOLib: LGPL-2.1). These source licenses do not label the official binary
+distribution as GPL. No separate source offer is required for the unmodified
+installer under its binary redistribution permission.
+
+DiskInfoToolkit 1.1.2 (MPL 2.0)
+https://github.com/Blacktempel/DiskInfoToolkit
+RAMSPDToolkit-NDD 1.4.2 (MPL 2.0)
+https://github.com/Blacktempel/RAMSPDToolkit
+BlackSharp.Core 1.0.7 (MPL 2.0)
+https://github.com/Blacktempel/BlackSharp
+Package sources: https://www.nuget.org/packages/<package-name>/<version>
+
+HidSharp 2.6.4 (Apache 2.0)
+https://software.seekye.com/hidsharp
+See HidSharp-LICENSE.txt and Apache-2.0.txt.
+
+Mono.Posix.NETStandard 1.0.0 (MIT)
+https://github.com/mono/mono
+.NET runtime and Microsoft System.* libraries (MIT)
+https://github.com/dotnet/runtime
+See dotnet-LICENSE.txt and Mono-LICENSE.txt.
+
+Manrope font: SIL Open Font License 1.1. See ../Fonts/OFL.txt and SOURCE.txt.

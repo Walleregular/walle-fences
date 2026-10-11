@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>WalleFences</AssemblyName>
+    <Version>1.0.0</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <BundledPawnIOSetup>$(MSBuildProjectDirectory)\Assets\Hardware\PawnIO\PawnIO_setup.exe</BundledPawnIOSetup>
+    <BundledPawnIOSha256>1F519A22E47187F70A1379A48CA604981C4FCF694F4E65B734AAA74A9FBA3032</BundledPawnIOSha256>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="..\WalleFences.Core\WalleFences.Core.csproj" /></ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="LibreHardwareMonitorLib" Version="0.9.6" />
+    <Resource Include="Assets\Fonts\*.ttf" />
+    <Resource Include="Assets\brand-icon.png" />
+    <Content Include="Assets\Fonts\OFL.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="Assets\Fonts\SOURCE.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="Assets\Licenses\*.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="Assets\Hardware\PawnIO\**\*" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+  </ItemGroup>
+  <Target Name="RequireBundledHardwarePayload" BeforeTargets="PrepareForBuild;ComputeFilesToPublish" Condition="'$(DesignTimeBuild)' != 'true'">
+    <Error Condition="!Exists('$(BundledPawnIOSetup)')" Text="The offline PawnIO 2.2.0 installer is required at Assets\Hardware\PawnIO\PawnIO_setup.exe. Restore the bundled project payload; build and publish never download or install drivers." />
+    <Error Condition="!Exists('$(MSBuildProjectDirectory)\Assets\Hardware\PawnIO\manifest.json')" Text="The bundled PawnIO manifest is missing." />
+    <Error Condition="!Exists('$(MSBuildProjectDirectory)\Assets\Licenses\PawnIO-LICENSE.txt')" Text="The bundled PawnIO redistribution license is missing." />
+    <Error Condition="!Exists('$(MSBuildProjectDirectory)\Assets\Licenses\PawnIO-NOTICES.txt')" Text="The bundled PawnIO notices are missing." />
+    <GetFileHash Files="$(BundledPawnIOSetup)" Algorithm="SHA256" HashEncoding="hex">
+      <Output TaskParameter="Items" ItemName="_BundledPawnIOHash" />
+    </GetFileHash>
+    <Error Condition="'%(_BundledPawnIOHash.FileHash)' != '$(BundledPawnIOSha256)'" Text="The bundled PawnIO installer does not match the pinned official 2.2.0 SHA-256. Restore the unmodified official payload." />
+  </Target>
+  <Target Name="KeepSensorLibraryReplaceable" BeforeTargets="_ComputeFilesToBundle">
+    <ItemGroup>
+      <ResolvedFileToPublish Update="@(ResolvedFileToPublish)" Condition="'%(ResolvedFileToPublish.Filename)' == 'LibreHardwareMonitorLib'">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+</Project>

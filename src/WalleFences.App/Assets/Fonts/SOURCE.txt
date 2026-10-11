@@ -1,0 +1,3 @@
+Manrope by Mikhail Sharanda. SIL Open Font License 1.1.
+Source: https://github.com/davelab6/manrope/tree/f521bf8a764ebc8d6b0c1ac6d1df75503441eba5
+Static TrueType faces: Regular, Medium, Semibold, Bold.

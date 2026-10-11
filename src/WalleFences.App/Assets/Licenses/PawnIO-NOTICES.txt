@@ -1,0 +1,40 @@
+Bundled component: PawnIO official setup
+Pinned release: 2.2.0 (installer product version 2.2.0.0)
+Release date: 2026-03-15
+Author and publisher: namazso, https://pawnio.eu/
+Copyright © 2026 namazso <admin@namazso.eu>
+
+This installer is distributed byte-for-byte without modification.
+It contains the signed official driver, the matching libraries and the
+installation payload; no network download is needed when installing it.
+Walle Fences uses the official edition. The unrestricted edition and
+debug information are not selected by the application.
+
+Release:
+https://github.com/namazso/PawnIO.Setup/releases/tag/2.2.0
+Original asset:
+https://github.com/namazso/PawnIO.Setup/releases/download/2.2.0/PawnIO_setup.exe
+SHA-256:
+1f519a22e47187f70a1379a48ca604981c4fcf694f4e65b734aaa74a9fba3032
+
+The original executable's Authenticode signature was validated on
+2026-10-11 and the SHA-256 matched the release asset's GitHub API digest.
+Signer: E=admin@namazso.eu, CN=namazso.eu, O=namazso, L=Debrecen, C=HU
+Signer certificate SHA-1 thumbprint:
+F380DCC9F706E2756A5047B832FFE719E1BC35F5
+See ../Hardware/PawnIO/manifest.json for package provenance and platform
+constraints. Hash and signature checks concern payload provenance; they
+do not constitute a Walle Fences runtime or sensor compatibility test.
+
+The official binary installer has its own redistribution permission;
+see PawnIO-LICENSE.txt. The public driver source has a separate license:
+https://github.com/namazso/PawnIO (GPL-2.0-or-later with interface exception)
+https://github.com/namazso/PawnIO/tree/master/PawnIOLib (LGPL-2.1)
+https://github.com/namazso/PawnIO.Modules (LGPL-2.1 modules, included by
+LibreHardwareMonitorLib; see LibreHardwareMonitor-NOTICES.txt)
+
+Copying this local installer during build or publish does not install a
+driver. Installation occurs only through the application's explicit
+local setup action and Windows elevation consent. This does not grant
+support for every motherboard or CPU: sensors still depend on hardware,
+vendor drivers, firmware and LibreHardwareMonitor support.

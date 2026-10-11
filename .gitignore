@@ -1,0 +1,40 @@
+# Local toolchains, generated builds, and diagnostics.
+/.tools/
+/artifacts/
+/.qa-archive/
+/dist/
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.log
+*.tmp
+*.bak
+*.dmp
+*.orig
+*.rej
+
+# Local profiles, backups, and machine-specific configuration.
+/profiles/
+/backups/
+/workspace.json
+/workspace.json.*
+/programs.json
+/programs.json.*
+.env
+.env.*
+!.env.example
+!.env.template
+secrets.json
+secrets.*.json
+credentials.json
+credentials.*.json
+*.pfx
+*.p12
+*.pem
+*.key
+
+# Bundled offline hardware dependencies and their licenses stay in src/.
